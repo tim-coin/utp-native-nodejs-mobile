@@ -199,7 +199,12 @@ on_utp_sendto (utp_callback_arguments *a) {
 //    .len = a->len
 //  };
 
-  uv_udp_try_send(&(self->handle), &buf, 1, a->address);
+//  uv_udp_try_send(&(self->handle), &buf, 1, a->address);
+
+  DWORD result, bytes;
+  uv_udp_t* handlep = &(self->handle);
+  WSASendTo(handlep->socket, (WSABUF*) &buf, 1, &bytes, 0,  a->address,  sizeof(struct sockaddr), NULL, NULL);
+
 #endif
   return 0;
 }
