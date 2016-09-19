@@ -189,10 +189,15 @@ on_utp_sendto (utp_callback_arguments *a) {
   struct sockaddr_in *addr = (struct sockaddr_in *) a->address;
   uv_udp_send(req, &(self->handle), &buf, 1, *addr, on_uv_send_compat);
 #else
-  uv_buf_t buf = {
-    .base = (char *) a->buf,
-    .len = a->len
-  };
+  uv_buf_t buf;
+
+  buf.base = (char *) a->buf;
+  buf.len = a->len;
+
+//  uv_buf_t buf = {
+//    .base = (char *) a->buf,
+//    .len = a->len
+//  };
 
   uv_udp_try_send(&(self->handle), &buf, 1, a->address);
 #endif
@@ -391,10 +396,15 @@ utp_uv_send (utp_uv_t *self, uv_udp_send_t* req, char *data, size_t len, int por
   if (ret) return -1;
 #endif
 
-  uv_buf_t buf = {
-    .base = data,
-    .len = len
-  };
+  uv_buf_t buf;
+
+  buf.base = data;
+  buf.len = len;
+
+//  uv_buf_t buf = {
+//    .base = (char *) a->buf,
+//    .len = a->len
+//  };
 
 #ifdef UV_LEGACY
   return uv_udp_send(req, handle, &buf, 1, addr, on_uv_send);
