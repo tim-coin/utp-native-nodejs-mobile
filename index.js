@@ -2,7 +2,7 @@ var events = require('events')
 var util = require('util')
 var timers = require('./timers')
 var stream = require('readable-stream')
-var utp = require('bindings')('utp.node')
+var utp = require('bindings')({bindings: 'utp.node', name: 'utp-native-no-prebuild'})
 var net = require('net')
 var dns = require('dns')
 
