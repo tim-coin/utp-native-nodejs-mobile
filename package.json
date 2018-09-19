@@ -1,6 +1,6 @@
 {
   "name": "utp-native-no-prebuild",
-  "version": "1.7.3",
+  "version": "1.7.3-2",
   "description": "Native bindings for libutp",
   "main": "index.js",
   "gypfile": true,
