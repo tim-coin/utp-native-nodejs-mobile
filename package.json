@@ -28,11 +28,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/staltz/utp-native.git"
+    "url": "https://github.com/staltz/utp-native-no-prebuild.git"
   },
   "author": "Mathias Buus (@mafintosh)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/staltz/utp-native/issues"
+    "url": "https://github.com/staltz/utp-native-no-prebuild/issues"
   }
 }
