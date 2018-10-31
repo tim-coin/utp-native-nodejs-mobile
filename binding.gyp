@@ -26,6 +26,10 @@
             '-lws2_32.lib'
           ]
         }
+      }],
+      ['OS=="android"', {
+        'cflags': ['-fPIC'],
+        'ldflags': ['-fPIC']
       }]
     ],
   }]

@@ -1,5 +1,5 @@
 {
-  "name": "utp-native",
+  "name": "utp-native-no-prebuild",
   "version": "2.1.0",
   "description": "Native bindings for libutp",
   "main": "index.js",
@@ -7,34 +7,37 @@
   "scripts": {
     "test-timeouts": "tape test/timeouts.js",
     "test": "standard && tape test/net.js test/sockets.js",
-    "install": "node-gyp-build",
     "fetch-libutp": "git submodule update --recursive --init",
-    "prebuild": "prebuildify --napi --strip",
-    "prebuild-ia32": "prebuildify --napi --strip --arch=ia32"
+    "prebuild": "prebuild --napi --all --strip --verbose",
+    "install": "prebuild-install || node-gyp rebuild",
+    "rebuild": "prebuild --compile"
+
   },
   "bin": {
     "ucat": "./ucat.js"
   },
   "dependencies": {
     "napi-macros": "^1.8.1",
-    "node-gyp-build": "^3.5.0",
+    "prebuild-install": "^5.0.0",
+    "bindings": "~1.3.0",
     "readable-stream": "^3.0.2",
     "timeout-refresh": "^1.0.0",
     "unordered-set": "^2.0.1"
   },
   "devDependencies": {
-    "prebuildify": "^2.9.0",
+    "prebuild": "^8.0.0",
+    "prebuild-ci": "^2.0.0",
     "standard": "^11.0.1",
     "tape": "^4.9.1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mafintosh/utp-native.git"
+    "url": "git+https://github.com/staltz/utp-native-no-prebuild.git"
   },
   "author": "Mathias Buus (@mafintosh)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mafintosh/utp-native/issues"
+    "url": "https://github.com/staltz/utp-native-no-prebuild/issues"
   },
-  "homepage": "https://github.com/mafintosh/utp-native#readme"
+  "homepage": "https://github.com/staltz/utp-native-no-prebuild#readme"
 }

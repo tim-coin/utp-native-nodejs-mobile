@@ -28,6 +28,10 @@
             ],
           },
         }],
+        ['OS=="android"', {
+          'cflags': ['-fPIC'],
+          'ldflags': ['-fPIC']
+        }]
       ],
       'cflags': [
         '-O3',
