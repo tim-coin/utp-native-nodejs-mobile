@@ -5,7 +5,7 @@
       'deps/libutp.gyp:libutp',
     ],
     "include_dirs": [
-      "<!(node -e \"require('napi-macros')\")",
+      "<!(node -e \"require('napi-macros-nodejs-mobile')\")",
       "deps/libutp",
     ],
     "sources": [
@@ -20,16 +20,12 @@
       '-O3',
     ],
     'conditions': [
-      ['OS=="win"', {
-        'link_settings': {
-          'libraries': [
-            '-lws2_32.lib'
-          ]
-        }
-      }],
       ['OS=="android"', {
         'cflags': ['-fPIC'],
         'ldflags': ['-fPIC']
+      }, {
+        # Refuse to build anything if OS is not android
+        'type': "none"
       }]
     ],
   }]

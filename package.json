@@ -16,7 +16,7 @@
     "ucat": "./ucat.js"
   },
   "dependencies": {
-    "napi-macros": "^1.8.1",
+    "napi-macros-nodejs-mobile": "1.8.1-1",
     "prebuild-install": "^5.2.1",
     "bindings": "~1.3.0",
     "readable-stream": "^3.0.2",
